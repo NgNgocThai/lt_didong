@@ -9,7 +9,6 @@ import {
   } from "react-native";
   import React, { useState } from "react";
   import Layout from "../../components/Layout/Content";
-  import { userData } from "../../data/userData";
   import InputBox from "../../components/Form/InputBox";
   
   const Profile = ({ navigation }) => {

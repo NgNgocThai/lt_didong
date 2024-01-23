@@ -70,9 +70,7 @@ const Footer = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.menuContainer}
-        onPress={() => {
-          dispatch(logout());
-        }}
+        onPress={() =>navigation.navigate ("logout")}
       >
         <AntDesign style={styles.icon} name="logout" />
         <Text style={styles.iconText}>Logout</Text>
@@ -93,14 +91,14 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 25,
-    color: "#000000",
+    color: "black",
   },
   iconText: {
-    color: "#000000",
+    color: "black",
     fontSize: 10,
   },
   active: {
-    color: "blue",
+    color: "red",
   },
 });
 export default Footer;

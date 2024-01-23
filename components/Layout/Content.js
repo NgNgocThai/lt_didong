@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     padding: 10,
+    backgroundColor: "white",
   },
 });
 export default Content;

@@ -24,7 +24,7 @@ import {
           <>
             <ScrollView>
               {cartItems?.map((item) => (
-                <Cartitem item={item} key={item._id} />
+                <Cartitem item={item} key={item.id} />
               ))}
             </ScrollView>
             <View>

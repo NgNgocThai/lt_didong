@@ -1,38 +1,40 @@
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 export const categoryData = [
     {
       _id: 1,
-      name: "Mobile",
-      path: "mobile",
-      icon: "mobile",
+      name: "Male",
+      path: "Male",
+      icon: "male",
     },
     {
       _id: 2,
-      name: "Laptop",
-      path: "laptop",
-      icon: "laptop",
+      name: "Females",
+      path: "Females",
+      icon: "female",
     },
     {
       _id: 3,
       name: "Desktop",
-      path: "desktop",
-      icon: "desktop",
+      path: "Computer Monitor",
+      icon: "tv",
     },
     {
       _id: 4,
-      name: "Tablet",
-      path: "tablet",
-      icon: "tablet",
+      name: "Bag",
+      path: "Bag",
+      icon: "suitcase",
     },
     {
       _id: 5,
-      name: "Headfones",
-      path: "headfones",
+      name: "Jewelry",
+      path: "Jewelry",
       icon: "headphones",
     },
     {
       _id: 6,
       name: "Accessories",
-      path: "accessories",
+      path: "Accessories",
       icon: "windows",
     },
   ];

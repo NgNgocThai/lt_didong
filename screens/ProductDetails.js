@@ -10,10 +10,10 @@ const ProductDetails = ({ route }) => {
   useEffect(() => {
     //find product details
     const getProudct = ProductsData.find((p) => {
-      return p?._id === params?._id;
+      return p?.id === params?.id;
     });
     setPDetails(getProudct);
-  }, [params?._id]);
+  }, [params?.id]);
   // console.log(route);
   // Handle function for + -
   const handleAddQty = () => {
@@ -31,7 +31,7 @@ const ProductDetails = ({ route }) => {
       <View style={styles.container}>
         <Text style={styles.title}>{pDetails?.name}</Text>
         <Text style={styles.title}>Price : {pDetails?.price} $</Text>
-        <Text style={styles.desc}>Price : {pDetails?.description} $</Text>
+        <Text style={styles.desc}>Des : {pDetails?.description} </Text>
         <View style={styles.btnContainer}>
           <TouchableOpacity
             style={styles.btnCart}
@@ -39,7 +39,7 @@ const ProductDetails = ({ route }) => {
             disabled={pDetails?.quantity <= 0}
           >
             <Text style={styles.btnCartText}>
-              {pDetails?.quantity > 0 ? "Add To Cart" : "Out Of Stock"}
+              {pDetails?.quantity > 0 ? "ADD TO CART" : "OUT OF STOCK"}
             </Text>
           </TouchableOpacity>
           <View style={styles.btnContainer}>
@@ -58,11 +58,12 @@ const ProductDetails = ({ route }) => {
 };
 const styles = StyleSheet.create({
   image: {
+    marginTop: 15,
     height: 300,
     width: "100%",
   },
   container: {
-    marginVertical: 5,
+    marginVertical: 15,
     marginHorizontal: 10,
   },
   title: {
@@ -73,19 +74,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textTransform: "capitalize",
     textAlign: "justify",
-    marginVertical: 10,
+    marginVertical: 2,
   },
   btnContainer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20,
+    marginVertical: 8,
     marginHorizontal: 10,
   },
   btnCart: {
     width: 180,
     backgroundColor: "#000000",
-    marginVertical: 10,
+    // marginVertical: 10,
     borderRadius: 5,
     height: 40,
     justifyContent: "center",

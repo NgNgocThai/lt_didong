@@ -1,13 +1,13 @@
 export const CartData = [
-    {
-      _id: 1,
-      name: "Apple iPhone 15 Plus (256 GB) - Pink",
-      description:
-        "DYNAMIC ISLAND COMES TO IPHONE 15, INNOVATIVE DESIGN 48MP MAIN CAMERA WITH 2X TELEPHOTO DYNAMIC ISLAND COMES TO IPHONE 15, INNOVATIVE DESIGN 48MP MAIN CAMERA WITH 2X TELEPHOTO DYNAMIC ISLAND COMES TO IPHONE 15, INNOVATIVE DESIGN 48MP MAIN CAMERA WITH 2X TELEPHOTO",
-      price: 900,
-      quantity: 30,
-      category: "mobile",
-      imageUrl: "https://m.media-amazon.com/images/I/71bErtQPC3L._SL1500_.jpg",
-    },
-  ];
-  
+  {
+    id: 1,
+    name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    description:
+      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    price: 109.95,
+    quantity: 30,
+    category: "bag",
+    imageUrl: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+  },
+    
+];

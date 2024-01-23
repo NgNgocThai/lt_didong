@@ -1,34 +1,33 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Layout from "../../components/Layout/Content"
-import { userData } from '../../data/userData'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-
+import Feather from 'react-native-vector-icons/Feather'
 
 const Account = ({navigation}) => {
   return (
     <Layout>
         <View style={styles.container}>
-            <Image source={{uri:userData.profilePic}} style={styles.image}/>
+            <Image  style={styles.image}/>
             <View style={{justifyContent:"center",alignItems:"center"}}>
                 <Text style={styles.name}>
-                    Hi 
-                    <Text style={{color:"green"}}> {userData.name} </Text>
+                    Hi Nguyễn Ngọc Thái
+                    <Text style={{color:"green"}}> </Text>
                     ✌️✌️
                 </Text>
-                <Text>Email : {userData.email}</Text>
-                <Text>Contact : {userData.contact}</Text>
+                <Text>Email : Vermouthno1@gmail.com</Text>
+                <Text>Contact : 0968388210</Text>
             </View>
             <View style={styles.btnContainer}>
                 <Text style={styles.heading}>Account Setting</Text>
                 <TouchableOpacity style={styles.btn} 
-                    onPress={()=>navigation.navigate("profile",{id:userData._id})}>
+                    onPress={()=>navigation.navigate("profile",{id:id})}>
                     <AntDesign name="edit"/>
                     <Text style={styles.btnText}>Edit Profile</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.btn} 
-                    onPress={()=>navigation.navigate("myorders",{id:userData._id})}>
+                    onPress={()=>navigation.navigate("myorders",{id:id})}>
                     <AntDesign name="bars"/>
                     <Text style={styles.btnText}>My Orders</Text>
                 </TouchableOpacity>
@@ -38,7 +37,12 @@ const Account = ({navigation}) => {
                     <Text style={styles.btnText}>Notification</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.btn} 
-                    onPress={()=>navigation.navigate("adminPanel",{id:userData._id})}>
+                    onPress={()=>navigation.navigate("googlemap")}>
+                    <Feather name="map-pin"/>
+                    <Text style={styles.btnText}>Google Map</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} 
+                    onPress={()=>navigation.navigate("adminPanel",{id:id})}>
                     <MaterialIcons name="admin-panel-settings"/>
                     <Text style={styles.btnText}>Admin Panel</Text>
                 </TouchableOpacity>

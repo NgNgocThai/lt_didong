@@ -1,19 +1,33 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from 'react-native'
+import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput, Alert } from 'react-native'
 import React, {useState} from 'react'
 import InputBox from '../components/Form/InputBox';
+import axios from 'axios';
 
 const Login = ({navigation}) => {
-    const loginImage="https://clipground.com/images/login-logo-clipart-2.png";
+    const loginImage="https://tse2.mm.bing.net/th?id=OIP.goWhDthBL6oJBJd3ioXDPgHaCe&pid=Api&P=0&h=220";
     const [email, setEmail]=useState("");
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("");
 
     //login function
     const handleLogin=()=>{
-        if(!email || !password){
-            return alert("Please add email or password");
+        let formData = {
+            email:email,
+            password:password,
         }
-        alert("Login Successfully");
-        navigation.navigate("home");
+        axios.post('https://6597ba0e668d248edf2344c8.mockapi.io/Account',formData)
+        .then((respone)=>{
+            if(respone.data){
+                Alert.alert("Login Successfully")
+                navigation.navigate('home')
+            }
+        }
+        )
+        .catch((err)=>console.log(err))
+        // if(!email || !password){
+        //     return alert("Please add email or password");
+        // }
+        // alert("Login Successfully");
+        // navigation.navigate("home");
     }
   return (
     <View style={styles.container}>
@@ -41,7 +55,8 @@ const styles=StyleSheet.create({
     container:{
         //alignItems:"center",
         justifyContent:"center",
-        height:"100%"
+        height:"100%",
+        backgroundColor: "white"
     },
     image:{
         height:150,

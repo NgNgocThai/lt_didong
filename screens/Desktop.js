@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';  // Import useNavigation hook
-import Layout from "../../components/Layout/Content";
+import Layout from "../components/Layout/Content";
 
-
-const Products = () => {
+const Desktop = () => {
   const navigation = useNavigation();  // Use useNavigation hook to get the navigation prop
   const [data, setData] = useState([]);
 
@@ -21,7 +20,7 @@ const Products = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch("https://fakestoreapi.com/products/category/men's clothing");
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -33,25 +32,25 @@ const Products = () => {
   }, []);
 
   return (
-    
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        {data.map((product, index) => (
-            <View key={index} style={styles.productContainer}>
-            <Image source={{ uri: product.image }} style={styles.productImage} />
-            <Text style={styles.productName}>{product.title}</Text>
-            <Text style={styles.productPrice}>${product.price}</Text>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.detailsButton} onPress={() => handleMoreButton(product.id)}>
-                <Text style={styles.buttonText}>Details</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
-                <Text style={styles.buttonText}>Add To Cart</Text>
-              </TouchableOpacity>
-            </View>
+    <Layout>
+    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      {data.map((product, index) => (
+        <View key={index} style={styles.productContainer}>
+          <Image source={{ uri: product.image }} style={styles.productImage} />
+          <Text style={styles.productName}>{product.title}</Text>
+          <Text style={styles.productPrice}>${product.price}</Text>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.detailsButton} onPress={() => handleMoreButton(product.id)}>
+              <Text style={styles.buttonText}>Details</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+              <Text style={styles.buttonText}>Add To Cart</Text>
+            </TouchableOpacity>
           </View>
-        ))}
-      </ScrollView>
-    
+        </View>
+      ))}
+    </ScrollView>
+    </Layout>
   );
 };
 
@@ -112,21 +111,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Products;
+export default Desktop;
 
-// import { View, Text } from "react-native";
-// import React from "react";
-// import ProductsCard from "./ProductsCard";
-// import { ProductsData } from "../../data/productsData";
 
-// const Products = () => {
-//   return (
-//     <View>
-//       {ProductsData.map((p) => (
-//         <ProductsCard key={p._id} p={p} />
-//       ))}
-//     </View>
-//   );
-// };
-
-// export default Products;

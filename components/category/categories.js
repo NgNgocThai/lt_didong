@@ -10,7 +10,7 @@ import {
   import AntDesign from "react-native-vector-icons/AntDesign";
   import { useNavigation } from "@react-navigation/native";
   import FontAwesome from "react-native-vector-icons/FontAwesome";
-  
+  import Ionicons from "react-native-vector-icons/Ionicons";
   
   const Categories = () => {
     const navigation = useNavigation();

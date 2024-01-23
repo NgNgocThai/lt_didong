@@ -11,7 +11,7 @@ const MyOrders = () => {
         <Text style={styles.heading}>My Orders</Text>
         <ScrollView>
           {orderData.map((order) => (
-            <OrderItem key={order._id} order={order} />
+            <OrderItem key={order.id} order={order} />
           ))}
         </ScrollView>
       </View>

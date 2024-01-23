@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native'
 import React, {useState} from 'react'
 import InputBox from '../components/Form/InputBox';
+import axios from 'axios';
+
 
 const Register = ({navigation}) => {
     const loginImage="https://clipground.com/images/login-logo-clipart-2.png";
@@ -11,15 +13,33 @@ const Register = ({navigation}) => {
     const [city, setCity] = useState("")
     const [contact, setContact] = useState("")
 
-
-    //login function
     const handleRegister=()=>{
-        if(!email || !password || !name || !address || !city || !contact){
-            return alert("Please add email or password or name");
+        let formData = {
+            email:email,
+            password:password,
+            name:name,
+            address:address,
+            city:city,
+            contact:contact,
         }
-        alert("Register Successfully");
-        navigation.navigate("login");
+        axios.post('https://6597ba0e668d248edf2344c8.mockapi.io/Account',formData)
+        .then((respone)=>{
+            if(respone.data){
+                Alert.alert("Register Successfully")
+                navigation.navigate('login')
+            }
+        }
+        )
+        .catch((err)=>console.log(err))
     }
+    //login function
+    // const handleRegister=()=>{
+    //     if(!email || !password || !name || !address || !city || !contact){
+    //         return alert("Please add email or password or name");
+    //     }
+    //     alert("Register Successfully");
+    //     navigation.navigate("login");
+    // }
   return (
     <View style={styles.container}>
         <Image source={{uri: loginImage}} style={styles.image}/>

@@ -2,8 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
+  const navigation = useNavigation();
     const [searchText,setSearchText]=useState("");
     const handleSearch = () =>{
       console.log(searchText);
@@ -13,7 +15,7 @@ const Header = () => {
     <View style={{height:80,backgroundColor:'lightgray'}}>
       <View style={styles.container}>
         <TextInput style={styles.inputBox} value={searchText} onChangeText={ (text) => setSearchText(text)}/>
-        <TouchableOpacity style={styles.searchBtn} onPress={handleSearch}>
+        <TouchableOpacity style={styles.searchBtn} onPress={() => navigation.navigate("search")}>
           <FontAwesome name="search" style={styles.icon}/>
         </TouchableOpacity>
       </View>
